@@ -36,9 +36,8 @@ class MovieDetailView(APIView):
 
         movie = Movie.objects.get(id=id)
 
-        serializer = MovieSerializer(data={"name": movie.name, "publish_date": movie.publish_date})
+        serializer = MovieSerializer(data=movie.__dict__)
         serializer.is_valid()
-
         return JsonResponse(serializer.data, safe=False)
 
     def patch(self, request, id):
@@ -52,7 +51,7 @@ class MovieDetailView(APIView):
 
         movie.save()
 
-        serializer = MovieSerializer(data={"name": movie.name, "publish_date": movie.publish_date})
+        serializer = MovieSerializer(movie.__dict__)
         serializer.is_valid()
 
         return JsonResponse(serializer.data, safe=False)
