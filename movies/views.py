@@ -51,7 +51,7 @@ class MovieDetailView(APIView):
 
         movie.save()
 
-        serializer = MovieSerializer(movie.__dict__)
+        serializer = MovieSerializer(data=movie.__dict__)
         serializer.is_valid()
 
         return JsonResponse(serializer.data, safe=False)
@@ -64,6 +64,6 @@ class MovieDetailView(APIView):
             movie = Movie.objects.get(id=id)
             movie.delete()
         except Movie.DoesNotExist:
-            return HttpResponse("Not Found", 404)
+            return JsonResponse({"status": "success"}, status=404)
 
         return JsonResponse({"status": "success"})
