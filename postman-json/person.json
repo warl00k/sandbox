@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "a09eb63d-5f90-446f-80b6-0103ab1f1af8",
+		"name": "person",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3394564"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "ehsan",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "jam",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/person/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"person",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/person/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"person",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/person/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"person",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "matin",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "azad",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/person/1/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"person",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/person/2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"person",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
