@@ -31,24 +31,13 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "title",
-							"value": "inception",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-							"type": "text"
-						},
-						{
-							"key": "actors",
-							"value": "3",
-							"type": "text"
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"world war z\",\n    \"description\": \"description222\",\n    \"actors\": [\n        {\n            \"name\": \"aniel\",\n            \"surname\": \"redfield\"\n        },\n        {\n            \"name\": \"jamz\",\n            \"surname\": \"band\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
 				"url": {
 					"raw": "localhost:8000/movie/",
@@ -90,34 +79,23 @@
 				"method": "PATCH",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "title",
-							"value": "warcraft",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "As an Orc horde invades the planet Azeroth using a magic portal, a few human heroes and dissenting Orcs must attempt to stop the true evil behind this war.",
-							"type": "text"
-						},
-						{
-							"key": "actors",
-							"value": "7",
-							"type": "text"
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"world war z\",\n    \"description\": \"description222\",\n    \"actors\": [\n        {\n            \"id\": 1,\n            \"name\": \"aniel\",\n            \"surname\": \"redfield\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"jamz\",\n            \"surname\": \"band\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
 				"url": {
-					"raw": "localhost:8000/movie/1/",
+					"raw": "localhost:8000/movie/23/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"movie",
-						"1",
+						"23",
 						""
 					]
 				}
