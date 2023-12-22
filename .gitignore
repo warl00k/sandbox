@@ -1,1 +1,12 @@
+# Ignore Python cache files
+*.pyc
+__pycache__/
+**/__pycache__/
+# Ignore Django migration cache files
+**/migrations/__pycache__/
+
+# Ignore database files
+*.sqlite3
+db.sqlite3
+
 .idea

@@ -13,20 +13,13 @@ class MovieView(APIView):
         return JsonResponse(serializer.data, safe=False)
 
     def post(self, request):
-        # actors_data_str = data.get('actors', '[]')
-        # actors_data = json.loads(actors_data_str)
-        # persons = Person.objects.filter(id__in=actors_data)
         data = request.data
-        movie = Movie(title=data.get('title'), description=data.get('description'))
-        movie.save()
-        actors = data.get('actors')
-        for _ in actors:
-            movie.actors.add(_)
-        return HttpResponse('Movie created', status=201)
-        # if serializer.is_valid():
-        #
-        #
-        # return JsonResponse(serializer.errors, status=400)
+        serializer = MovieSerializer(data=data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return HttpResponse('Movie created', status=201)
+        return JsonResponse(serializer.errors, status=400)
 
 
 class MovieDetailView(APIView):
