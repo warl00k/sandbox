@@ -83,11 +83,11 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_aban_tether',
+        'NAME': 'lb_aban_tether',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': '1',
         'HOST': 'localhost',    
-        'PORT': '5434',
+        'PORT': '5432',
     }
 }
 

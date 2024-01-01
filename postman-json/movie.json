@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c4d46967-f74d-4be4-9415-531981b1f877",
+		"_postman_id": "a1248faa-22d8-4ebe-abca-d4ad812360c9",
 		"name": "movie",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "3394564"
+		"_exporter_id": "31727449"
 	},
 	"item": [
 		{
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"world war z\",\n    \"description\": \"description222\",\n    \"actors\": [\n        {\n            \"name\": \"aniel\",\n            \"surname\": \"redfield\"\n        },\n        {\n            \"name\": \"jamz\",\n            \"surname\": \"band\"\n        }\n    ]\n}",
+					"raw": "{\n    \"title\": \"GOT\",\n    \"description\": \"Hut\",\n    \"actors\": [\n        {\n            \"name\": \"zeuse\",\n            \"surname\": \"GOD\",\n            \"role\": \"Main Character\" //optional\n        }\n    ],\n    \"actors_input\": [\n        {\n            \"actor_id\": 1,\n            \"role\": \"Main Character2222\"\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
