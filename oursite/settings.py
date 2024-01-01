@@ -85,9 +85,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'lb_aban_tether',
         'USER': 'postgres',
-        'PASSWORD': '1',
+        'PASSWORD': '123',
         'HOST': 'localhost',    
-        'PORT': '5432',
+        'PORT': '5434',
     }
 }
 

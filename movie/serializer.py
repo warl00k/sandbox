@@ -5,7 +5,6 @@ from person.serializer import PersonSerializer
 
 
 class MovieSerializer(serializers.ModelSerializer):
-    actors = PersonSerializer(many=True, allow_null=True)
     actors_input = serializers.ListField(
         child=serializers.DictField(), required=False
     )
@@ -15,32 +14,18 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'description', 'actors', 'actors_input']
 
     def create(self, validated_data):
-        actors_data = validated_data.pop('actors', [])
-        actors_input = validated_data.pop('actors_input', [])
+        persons_input = validated_data.pop('actors_input', [])
 
         movie = Movie.objects.create(**validated_data)
 
-        for actor_data in actors_data:
-            role_name = actor_data.pop('role', '')
-            actor_serializer = PersonSerializer(data=actor_data)
+        for p in persons_input:
+            role_name = p.get('role', '')
+            actor_id = p.get('actor_id', None)
 
-            if actor_serializer.is_valid():
-                new_actor = actor_serializer.save()
+            if actor_id is None or role_name is None:
+                continue
 
-                AssignmentRole.objects.create(movie=movie, person=new_actor, name=role_name)
-
-        for actor_input in actors_input:
-            role_name = actor_input.get('role', '')
-            actor_id = actor_input.get('actor_id', None)
-
-            if actor_id is not None:
-                try:
-                    existing_actor = Person.objects.get(id=actor_id)
-
-                    AssignmentRole.objects.create(movie=movie, person=existing_actor, name=role_name)
-                except Person.DoesNotExist:
-                    pass
-
+            AssignmentRole.objects.create(movie=movie, person_id=actor_id, name=role_name)
         return movie
 
     def update(self, instance, validated_data):
@@ -48,11 +33,16 @@ class MovieSerializer(serializers.ModelSerializer):
         instance.description = validated_data.get('description', instance.description)
         instance.save()
 
-        actors_data = validated_data.pop('actors_input', [])
+        persons_data = validated_data.pop('actors_input', [])
 
         instance.actors.clear()
 
-        for actor_data in actors_data:
-            instance.actors.add(actor_data)
+        for p in persons_data:
+            role_name = p.get('role', '')
+            actor_id = p.get('actor_id', None)
 
+            if actor_id is None or role_name is None:
+                raise Exception()
+
+            AssignmentRole.objects.create(movie=instance, person_id=actor_id, name=role_name)
         return instance
