@@ -2,6 +2,7 @@ from rest_framework import serializers
 from movie.models import Movie, AssignmentRole
 from person.models import Person
 from person.serializer import PersonSerializer
+from .models import Comment
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -46,3 +47,9 @@ class MovieSerializer(serializers.ModelSerializer):
 
             AssignmentRole.objects.create(movie=instance, person_id=actor_id, name=role_name)
         return instance
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
